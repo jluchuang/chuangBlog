@@ -11,5 +11,7 @@ urlpatterns = patterns('',
 
     url(r'^jsonTest/$', 'chuang.views.jsonTest', name = 'jsonTest'),
 
+    url(r'^qrcode/$', 'tools.views.generate_qrcode', name = 'qrcode'), 
+
     url(r'^admin/', include(admin.site.urls)),
 )
