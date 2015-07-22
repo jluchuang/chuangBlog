@@ -3,12 +3,12 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 import qrcode
-from cStringIO import StringIO
+from io import BytesIO
 
 def generate_qrcode(request) : 
 	img = qrcode.make("www.keeptry.cn")
 
-	buf = StringIO()
+	buf = BytesIO()
 	img.save(buf)
 	image_stream = buf.getvalue()
 
