@@ -9,7 +9,7 @@ from django.http import HttpResponse
 import json
 
 def index(request) : 
-	return HttpResponse(u"Welcome Chuang!!")
+	return render(request, 'chuangHome.html')
 
 def chuangHome(request):
 	return render(request, 'chuangHome.html')

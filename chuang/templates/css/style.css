@@ -1,0 +1,15 @@
+.main { 
+    max-width: 600px;
+    margin: 0 auto; 
+}
+.simple { 
+    width: 500px;
+    margin: 20px auto;
+}
+.fancy { 
+    width: 500px;
+    margin: 20px auto;
+    padding: 50px;
+    border-width: 10px; 
+    background-color: #ff0000;
+}

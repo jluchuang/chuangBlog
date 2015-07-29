@@ -14,4 +14,6 @@ urlpatterns = patterns('',
     url(r'^qrcode/$', 'tools.views.generate_qrcode', name = 'qrcode'), 
 
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^css/(?P<path>.*)$','django.views.static.serve',{'document_root':'/home/chuang/chuangBlog/chuang/templates/css'}),
 )
