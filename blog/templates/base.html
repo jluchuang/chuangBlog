@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% include 'inc/headers.html' %}
+    <title>{% block title %}Keep Try{% endblock %} - Coding</title>
+    <link rel="shortcut icon" href="/media/fav.ico"/>
+</head>
+<body  onload="prettyPrint()">
+    {% include 'inc/topview.html' %}
+    <div id="main">
+        <div id="main-inner">
+	        {% include 'inc/nav.html' %}
+ 
+	        {% block content %}
+	            <div>这里是默认内容，所有继承自这个模板的，如果不覆盖就显示这里的默认内容。</div>
+	        {% endblock %}
+        </div>
+    </div>    	
+ 
+	{% include 'inc/footer.html' %}
+	<script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']],
+                    processEscapes: true
+                }
+            });
+        </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
+</body>
+</html>
