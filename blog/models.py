@@ -14,5 +14,7 @@ class Article(models.Model):
 	pub_date = models.DateTimeField(u'pub_time', auto_now_add = True, editable = True)
 	update_time = models.DateTimeField(u'update_time', auto_now = True, null = True)
 
+	type_id =  models.IntegerField(u'type_id', default = 0)
+
 	def __str__(self) : 
 		return self.title 

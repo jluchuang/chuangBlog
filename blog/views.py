@@ -6,6 +6,9 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 
+#for model
+from .models import Article
+
 import json
 
 def index(request) : 
@@ -24,3 +27,16 @@ def jsonTest(request):
 
 def friends(request):
 	return render(request, 'friends.html')
+
+def tecBlog(request):
+	return render(request, 'tecblog.html')
+
+def listAllBlogs(request):
+    articles = Article.objects.all()
+    blogList = []
+    for article in articles:
+    	blogList.append(article.title)
+
+	return render(request, 'blogList.html', {
+		'blogList' : json.dumps(blogList)
+		})

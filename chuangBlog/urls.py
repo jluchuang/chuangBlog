@@ -20,10 +20,16 @@ urlpatterns = patterns('',
     #Home 
     url(r'^$', 'blog.views.index', name='home'),
 
+    #Tec Blog
+    url(r'^blog/$', 'blog.views.tecBlog', name='tecblog'),
+
+    #Blog List
+    url(r'^blogList/$', 'blog.views.listAllBlogs', name='blogList'),
+
     #About me
     url(r'^aboutMe/$', 'blog.views.chuangHome', name='aboutMe'),
 
-    #About me
+    #Friends
     url(r'^friends/$', 'blog.views.friends', name='friends'),
 
     #Admin

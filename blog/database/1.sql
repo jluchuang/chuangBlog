@@ -1,0 +1,1 @@
+ALTER TABLE blog_article ADD COLUMN type_id INT(11) NOT NULL DEFAULT 0;
