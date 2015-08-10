@@ -28,9 +28,13 @@ def jsonTest(request):
 def friends(request):
 	return render(request, 'friends.html')
 
-def tecBlog(request):
-	return render(request, 'tecblog.html')
+#Show content for article
+def tecBlog(request, title):
+	return render(request, 'tecblog.html', {
+		'title' : json.dumps(title)
+		})
 
+#Article List
 def listAllBlogs(request):
     articles = Article.objects.all()
     blogList = []
