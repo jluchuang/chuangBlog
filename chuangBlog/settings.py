@@ -135,3 +135,9 @@ STATIC_URL = '/static/'
 #    "django.contrib.staticfiles.finders.FileSystemFinder",
 #    "django.contrib.staticfiles.finders.AppDirectoriesFinder"
 #)
+
+import logging
+logging.basicConfig(
+    level = logging.DEBUG,
+    format = '%(asctime)s %(levelname)s %(message)s',
+)

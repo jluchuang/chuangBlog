@@ -6,10 +6,13 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 
+from django.core import serializers
+
 #for model
 from .models import Article
 
 import json
+import logging
 
 def index(request) : 
 	return render(request, 'chuangHome.html')
@@ -30,17 +33,26 @@ def friends(request):
 
 #Show content for article
 def tecBlog(request, title):
+	logging.debug(title)
+
+	article = Article.objects.filter(title__iexact=title)
+   
+	if article:
+		logging.debug(serializers.serialize("json", article))
+    	pass
+
 	return render(request, 'tecblog.html', {
-		'title' : json.dumps(title)
+		'article' : serializers.serialize("json", article)
 		})
 
 #Article List
 def listAllBlogs(request):
-    articles = Article.objects.all()
-    blogList = []
-    for article in articles:
-    	blogList.append(article.title)
+    article_set = Article.objects.all()
+    logging.debug(article_set)
+
+    if article_set:
+    	logging.debug(serializers.serialize("json", article_set))
 
 	return render(request, 'blogList.html', {
-		'blogList' : json.dumps(blogList)
+		'blogList' : serializers.serialize("json", article_set)
 		})
