@@ -9,6 +9,7 @@ from django.utils.encoding import python_2_unicode_compatible
 @python_2_unicode_compatible
 class Article(models.Model):
 	title = models.CharField(u'title', max_length=256)
+	summary = models.TextField(u'summary')
 	content = models.TextField(u'content')
 
 	pub_date = models.DateTimeField(u'pub_time', auto_now_add = True, editable = True)

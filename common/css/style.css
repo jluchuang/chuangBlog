@@ -126,6 +126,8 @@ div.article-block {
 }
 div.article-block p.title {
     font-size: 24px;
+    /*background-color: gray;*/
+    font: bold;
 }
 div.article-block p.title a {
     color:#333;
