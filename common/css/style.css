@@ -61,6 +61,9 @@ div#header-inner {
     margin: 0 auto;
     padding-top: 2px;
 }
+div#main {
+    margin-bottom: 70px;
+}
 div#main-inner {
     width: 90%;
     max-width: 1024px;
@@ -78,6 +81,15 @@ div#subtitle {
 }
 
 /* é¡µé¢åº•éƒ¨ */
+div#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 70px;
+  background-color: white;
+  width: 100%;
+}
+
 div#footer-inner {
     border-top: 1px solid #5a5a5a;
     width: 100%;
@@ -92,12 +104,17 @@ div#footer-inner p {
 /* æ–‡ç« é¡µé¢ */
 div#article-title {
     margin: 18px 0;
+    margin-left: 200px;
     font-size: 30px;
     border-left: 6px solid #ccc;
     padding-left: 12px;
 }
 div#article-title a {
+    /*margin-left: 200px;*/
     color: #2a2a2a;
+}
+div#article-content {
+    margin-left: 200px;
 }
 div#article-content p.picture {
     text-align: center;
@@ -174,6 +191,13 @@ div#page-content blockquote {
 div#page-content li {
     margin: 7px 0;
     color: #5a5a5a;
+}
+
+div#audit-list {
+    position: absolute;
+    width: 195px;
+    border-right: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
 }
 
 /* æ ‡ç­¾é…ç½® */

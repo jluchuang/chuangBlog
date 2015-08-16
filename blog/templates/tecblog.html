@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<div id = "article_title">
+    {% include 'inc/audit_nav.html' %}
+	<div id = "article-title">
 	</div>
-    <div id = "article_content"> 	
+    <div id = "article-content"> 	
 	</div>
 	<script type="text/javascript">
     	var article = {{ article|safe }};
         var title = article[0].fields.title;
-        $('#article_title').append("<li><a href = \"/blogList/" + title+ "/ \">"+title+"</a></li>");
+        $('#article-title').append("<a href = \"/blogList/" + title+ "/ \">"+title+"</a>");
         console.log(title);
 
         var content = article[0].fields.content;
-        $('#article_content').append(content);
+        $('#article-content').append("<h3>"+content+"</h3>");
         console.log(title);
 	</script>
 {% endblock %}

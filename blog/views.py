@@ -35,6 +35,8 @@ def friends(request):
 def tecBlog(request, title):
 	logging.debug(title)
 
+	article_set = Article.objects.all()
+
 	article = Article.objects.filter(title__iexact=title)
    
 	if article:
@@ -42,7 +44,8 @@ def tecBlog(request, title):
     	pass
 
 	return render(request, 'tecblog.html', {
-		'article' : serializers.serialize("json", article)
+		'article' : serializers.serialize("json", article),
+		'blogList' : serializers.serialize("json", article_set)
 		})
 
 #Article List
