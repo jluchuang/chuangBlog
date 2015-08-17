@@ -261,3 +261,19 @@ div#topnav ul li.sep {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }*/
+div.friends-block {
+    border-top: 1px dashed #ccc;
+    margin: 0 12px;
+    height: 300px;
+}
+div.friends-block li{
+    margin-right: 300px;
+}
+div.friends-block p.pic {
+    overflow: auto;
+    zoom:1;
+    width: 220px;
+    height: 250px;
+    float: right;
+    margin: 0 0 1em 1em;
+}
