@@ -11,6 +11,7 @@ from django.core import serializers
 #for model
 from .models import Article
 
+from bson import json_util
 import json
 import logging
 
@@ -53,9 +54,11 @@ def listAllBlogs(request):
     article_set = Article.objects.all()
     logging.debug(article_set)
 
+    articleList = []
     if article_set:
     	logging.debug(serializers.serialize("json", article_set))
 
+
 	return render(request, 'blogList.html', {
-		'blogList' : serializers.serialize("json", article_set)
+		'blogList' : serializers.serialize("json", article_set, fields=('title', 'summary'))
 		})
