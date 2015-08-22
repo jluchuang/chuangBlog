@@ -34,31 +34,42 @@ def friends(request):
 
 #Show content for article
 def tecBlog(request, title):
-	logging.debug(title)
-
-	article_set = Article.objects.all()
-
-	article = Article.objects.filter(title__iexact=title)
-   
-	if article:
-		logging.debug(serializers.serialize("json", article))
+    #Get the article from database
+    article = Article.objects.filter(title__iexact=title)
+    logging.debug(article);
+    
+    #Generate Json Result
+    if article:
+        articleDict = {}
+        articleDict['title'] = article[0].title
+        articleDict['summary'] = article[0].summary
+        articleDict['content'] = article[0].content
+        articleDict['pub_date'] = article[0].pub_date.strftime("%Y-%m-%d-%H")
+        articleDict['update_time'] = article[0].update_time.strftime("%Y-%m-%d-%H")
+        return render(request, 'tecblog.html', {
+            'article' : json.dumps(articleDict)
+            })
     	pass
 
-	return render(request, 'tecblog.html', {
-		'article' : serializers.serialize("json", article),
-		'blogList' : serializers.serialize("json", article_set)
-		})
+	return render(request, 'tecblog.html')
 
 #Article List
 def listAllBlogs(request):
     article_set = Article.objects.all()
-    logging.debug(article_set)
 
     articleList = []
+    jsonList = {}
+
     if article_set:
-    	logging.debug(serializers.serialize("json", article_set))
+        for article in article_set:
+            tmpDict = {}
+            tmpDict['title'] = article.title
+            tmpDict['summary'] = article.summary
+            articleList.append(tmpDict)
+        #jsonList = serializers.serialize("json", article_set, fields=('title', 'summary'))
+        jsonList = json.dumps(articleList)
+        return render(request, 'blogList.html', {
+            'blogList' : jsonList
+            })
 
-
-	return render(request, 'blogList.html', {
-		'blogList' : serializers.serialize("json", article_set, fields=('title', 'summary'))
-		})
+    return render(request, 'blogList.html')

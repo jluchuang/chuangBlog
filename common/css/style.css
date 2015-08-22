@@ -266,14 +266,22 @@ div.friends-block {
     margin: 0 12px;
     height: 300px;
 }
-div.friends-block li{
-    margin-right: 300px;
+div.friends-block div.introduce-block{
+    width: 65%;
+    position: relative;
+    float: left;
 }
-div.friends-block p.pic {
+
+div.friends-block div.introduce-block li{
+    margin: 7px 0;
+    color: #5a5a5a;
+}
+
+div.friends-block div.pic {
     overflow: auto;
     zoom:1;
-    width: 220px;
-    height: 250px;
+    width: 30%;
     float: right;
-    margin: 0 0 1em 1em;
+    margin: 1em 1em 1em 1em;
+    position: relative;
 }

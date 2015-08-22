@@ -6,13 +6,18 @@
     <div id = "article-content"> 	
 	</div>
 	<script type="text/javascript">
-    	var article = {{ article|safe }};
-        var title = article[0].fields.title;
-        $('#article-title').append("<a href = \"/blogList/" + title+ "/ \">"+title+"</a>");
-        console.log(title);
+        $(document).ready(function  () {
+            intArticle();
+        });
+        function intArticle(){
+            var article = {{ article|safe }};
+            var title = article.title;
+            $('#article-title').append("<a href = \"/blogList/" + title+ "/ \">"+title+"</a>");
+            console.log(title);
 
-        var content = article[0].fields.content;
-        $('#article-content').append("<h3>"+content+"</h3>");
-        console.log(title);
+            var content = article.content;
+            $('#article-content').append("<h3>"+content+"</h3>");
+            console.log(title);
+        }
 	</script>
 {% endblock %}

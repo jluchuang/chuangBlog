@@ -7,19 +7,26 @@
 		//列表
     	var blogList = {{ blogList|safe }};
 
-        var htmStr = "";
 
-    	for (var i = blogList.length - 1; i >= 0; i--) {
-            htmStr += "<div class = \"article-block\">"; 
-            var title = blogList[i].fields.title;
-    		htmStr += "<p class=\"title\"><a href = \"/blogList/" + title+ "/ \">"+title+"</a></p>"; 
+        $(document).ready(function(){
+            initList();
+        })
 
-            var summary = blogList[i].fields.summary;
-            htmStr += "<p class=\"abstract\">摘要：" + summary + "</p>" 
+        function initList(){
+            var htmStr = "";
 
-            htmStr += "</div>"
-    		console.log(title);
-    	}
-        $("#list").append(htmStr);
+            for (var i = blogList.length - 1; i >= 0; i--) {
+                htmStr += "<div class = \"article-block\">"; 
+                var title = blogList[i].title;
+                htmStr += "<p class=\"title\"><a href = \"/blogList/" + title+ "/ \">"+title+"</a></p>"; 
+
+                var summary = blogList[i].summary;
+                htmStr += "<p class=\"abstract\">摘要：" + summary + "</p>"; 
+
+                htmStr += "</div>"; 
+                console.log(title);
+            }
+            $("#list").append(htmStr);
+        }
 	</script>
 {% endblock %}

@@ -1,23 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<div id = "list">
+<div id = "list" class="container-fluid">
 	<div id = "friend1" class = "friends-block">
-	    <li>name : menxingxing</li>
-	    <li>name : menxingxing</li>
-	    <li>name : menxingxing</li>
-	    <li>name : menxingxing</li>
-	    <li>name : menxingxing</li>
-	    <li>name : menxingxing</li>
-		<p class = "pic">
-    		<img src="/media/friend1.png" width="90%" height="90%"> 
-    	</p>
+        <div class="introduce-block">
+            <li>姓名： 门星星</li>
+            <li>本站首席赞助，高冷美女，活泼开朗</li>
+            <li>现就职于阿里云事业部，产品经理</li>
+            <li>有敏锐的发现用户需求的嗅觉，善于从数据中洞察用户行为动机</li>
+            <li>优秀的产品设计能力，善于沟通和推进项目</li>
+        </div>
+        <div class="pic">
+            <img src="/media/friend1.png" width="90%" height="90%"> 
+        </div>    
 	</div>
-	<div id = "friend2" class = "friends-block">
-	    <li>name : mengguoqiang</li>
-		<p class = "pic">
-    		<img src="/media/friend1.png" width="90%" height="90%"> 
-    	</p>
-	</div>	 	
+    <div id = "friend2" class = "friends-block">
+        <div class="introduce-block">
+            <li>姓名： 孟国强</li>
+            <li>本站第二赞助，天下第一大美女~~!</li>
+            <li>现就职于MIUI广告组，服务端开发工程师</li>
+            <li>有着极致的技术追求</li>
+            <li>气场无限大，工作认真负责</li>
+            <li>最后我敬你因为你是条汉子～</li>
+        </div>
+        <div class="pic">
+            <img src="/media/friend2.jpg" width="90%" height="90%"> 
+        </div>    
+    </div>
 </div>
 {% endblock %}
