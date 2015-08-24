@@ -16,8 +16,10 @@
             console.log(title);
 
             var content = article.content;
-            $('#article-content').append("<h3>"+content+"</h3>");
-            console.log(title);
+            var showContent = String__nl2br(String__escape(content));
+            console.log(showContent);
+            $('#article-content').append("<h3><pre class = \"prettyprint\">"+showContent+"</pre></h3>");
+            console.log(content);
         }
 	</script>
 {% endblock %}
