@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles', 
+    'ckeditor',
 
    # 'chuang', 
     'blog', 
@@ -118,17 +119,38 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# For CKEditor 
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+   'default': {
+         'toolbar': (
+            ['div','Source','-','Save','NewPage','Preview','-','Templates'],
+            ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print','SpellChecker','Scayt'],
+            ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+            ['Form','Checkbox','Radio','TextField','Textarea','Select','Button', 'ImageButton','HiddenField'],
+            ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+            ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+            ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+            ['Link','Unlink','Anchor'],
+            ['Image','Flash','CodeSnippet','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+            ['Styles','Format','Font','FontSize'],
+            ['TextColor','BGColor'],
+            ['Maximize','ShowBlocks','-','About', 'pbckcode'],
+        ),
+        "extraPlugins": "codesnippet",
+        "codeSnippet_languages": {"Python":"Python","Bash":"Bash","HTML":"HTML","JavaScript":"JavaScript","C":"C","CPlusPlus":"CPlusPlus","Java":"Java"},
+        "codeSnippet_theme": "monokai_sublime",
+    }
+}
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-#STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
-
-# STATIC_ROOT
-#STATICFILES_DIRS = (
-#    os.path.join(BASE_DIR, "common_static"),
-#    '/path/to/others/static/',
-#)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # STATICFILES_DIRS
 #STATICFILES_FINDERS = (

@@ -3,7 +3,8 @@
 {% block content %}
 	<div id = "article-title">
 	</div>
-    <div id = "article-content"> 	
+    <div id = "article-content">
+        {{ article_content|safe }} 	
 	</div>
 	<script type="text/javascript">
         $(document).ready(function  () {
@@ -16,9 +17,9 @@
             console.log(title);
 
             var content = article.content;
-            var showContent = String__nl2br(String__escape(content));
-            console.log(showContent);
-            $('#article-content').append("<h3><pre class = \"prettyprint\">"+showContent+"</pre></h3>");
+            //var showContent = String__nl2br(String__escape(content));
+            //console.log(showContent);
+            $('#article-content').append("<h3>"+content+"</h3>");
             console.log(content);
         }
 	</script>

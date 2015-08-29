@@ -37,7 +37,7 @@ h1, h2, h3, h4 {
 }
 
 /* ä¸ºä»£ç å—å®šä¹‰çš„æ ·å¼ */
-pre.prettyprint {
+/*pre.prettyprint {
     font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace !important;
     font-size: 11px;
     border: 1px solid #e1e1e8;
@@ -45,7 +45,7 @@ pre.prettyprint {
 }
 pre.prettyprint ol {
     margin: 0;
-}
+}*/
 div#article-content pre.prettyprint li {
     margin: 0;
 }

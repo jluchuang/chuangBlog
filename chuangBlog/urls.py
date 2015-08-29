@@ -16,28 +16,31 @@ urlpatterns = patterns('',
 
     url(r'^media/(?P<path>.*)$','django.views.static.serve', 
         {'document_root':'/home/chuang/chuangBlog/common/media'}),
+
+    # For ckeditor
+    url(r'^ckeditor/', include('ckeditor.urls')),
     
-    #Home 
+    # Home 
     url(r'^$', 'blog.views.index', name='home'),
 
-    #Tec Blog
+    # Tec Blog
     url(r'^blogList/(.+)/$', 'blog.views.tecBlog', name='tecblog'),
 
-    #Blog List
+    # Blog List
     url(r'^blogList/$', 'blog.views.listAllBlogs', name='blogList'),
 
-    #About me
+    # About me
     url(r'^aboutMe/$', 'blog.views.chuangHome', name='aboutMe'),
 
-    #Friends
+    # Friends
     url(r'^friends/$', 'blog.views.friends', name='friends'),
 
-    #Admin
+    # Admin
     url(r'^admin/', include(admin.site.urls)),
 
-    #Tools
+    # Tools
     url(r'^qrcode/$', 'tools.views.generate_qrcode', name = 'qrcode'),
 
-    #Just some study
+    # Just some study
     url(r'^jsonTest/$', 'blog.views.jsonTest', name = 'jsonTest'),
 )
