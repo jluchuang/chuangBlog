@@ -4,7 +4,6 @@
 	<div id = "article-title">
 	</div>
     <div id = "article-content">
-        {{ article_content|safe }} 	
 	</div>
 	<script type="text/javascript">
         $(document).ready(function  () {
@@ -19,7 +18,7 @@
             var content = article.content;
             //var showContent = String__nl2br(String__escape(content));
             //console.log(showContent);
-            $('#article-content').append("<h3>"+content+"</h3>");
+            $('#article-content').append(content);
             console.log(content);
         }
 	</script>

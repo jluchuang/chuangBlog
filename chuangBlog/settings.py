@@ -141,7 +141,10 @@ CKEDITOR_CONFIGS = {
             ['Maximize','ShowBlocks','-','About', 'pbckcode'],
         ),
         "extraPlugins": "codesnippet",
-        "codeSnippet_languages": {"Python":"Python","Bash":"Bash","HTML":"HTML","JavaScript":"JavaScript","C":"C","CPlusPlus":"CPlusPlus","Java":"Java"},
+        "codeSnippet_languages": {"python":"python","bash":"bash","xml":"HTML",
+                                    "javaScript":"JavaScript","cpp":"C","cpp":"cpp",
+                                    "java":"Java","css":"css","json":"json",
+                                    "nginx":"nginx","sql":"sql"},
         "codeSnippet_theme": "monokai_sublime",
     }
 }
