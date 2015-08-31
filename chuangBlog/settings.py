@@ -142,7 +142,7 @@ CKEDITOR_CONFIGS = {
         ),
         "extraPlugins": "codesnippet",
         "codeSnippet_languages": {"python":"python","bash":"bash","xml":"HTML",
-                                    "javaScript":"JavaScript","cpp":"C","cpp":"cpp",
+                                    "javascript":"JavaScript","cpp":"C","cpp":"cpp",
                                     "java":"Java","css":"css","json":"json",
                                     "nginx":"nginx","sql":"sql"},
         "codeSnippet_theme": "monokai_sublime",
