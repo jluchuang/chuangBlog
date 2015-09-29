@@ -120,7 +120,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # For CKEditor 
-CKEDITOR_UPLOAD_PATH = "uploads/"
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_UPLOAD_PATH = 'uploads'
 
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
