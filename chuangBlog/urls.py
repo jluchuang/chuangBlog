@@ -14,8 +14,9 @@ urlpatterns = patterns('',
     url(r'^inc/(?P<path>.*)$','django.views.static.serve', 
     	{'document_root':'/home/chuang/chuangBlog/common/inc'}),
 
+    # Ckeditor upload file path
     url(r'^media/(?P<path>.*)$','django.views.static.serve', 
-        {'document_root':'/home/chuang/chuangBlog/common/media'}),
+        {'document_root':'/home/chuang/chuangBlog/media'}),
 
     # For ckeditor
     url(r'^ckeditor/', include('ckeditor.urls')),
