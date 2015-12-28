@@ -16,7 +16,7 @@ import json
 import logging
 
 def index(request) : 
-	return render(request, 'chuangHome.html')
+    return listAllBlogs(request)
 
 def chuangHome(request):
 	return render(request, 'chuangHome.html')

@@ -1,9 +1,6 @@
 <div id="topnav">
     <ul>
         <li><a href="/">首页</a></li>
-
-        <li class="sep"> | </li>
-        <li><a href="{% url 'blogList' %}">点滴积累</a></li>
                 
         <li class="sep"> | </li>
         <li><a href="{% url 'aboutMe' %}">关于我</a></li>
@@ -13,6 +10,11 @@
         
         <li class="sep"> | </li>
         <li><a href="{% url 'friends' %}" target="_blank">小伙伴们</a></li>
+
+        <form class="form-inline"> 
+            <input name="search_word" value="" type="text"> 
+            <input class="btn btn-primary" name="submit" value="GO" type="submit"/>
+        </form>
     </ul>
     <div style="clear:both;"></div>  
 </div>  

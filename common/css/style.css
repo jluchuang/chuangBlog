@@ -61,6 +61,14 @@ div#header-inner {
     margin: 0 auto;
     padding-top: 2px;
 }
+
+div#header-search {
+    width: 90%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding-top: 2px;
+}
+
 div#main {
     margin-bottom: 70px;
 }
@@ -255,6 +263,9 @@ div#topnav ul li a {
 div#topnav ul li.sep {
     color: #ccc;
     margin: 0 12px;
+}
+div#topnav ul .form-inline {
+    float: right;
 }
 /* {
     -webkit-box-sizing: border-box;
