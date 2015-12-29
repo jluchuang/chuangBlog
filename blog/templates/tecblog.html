@@ -5,7 +5,16 @@
 	</div>
     <div id = "article-content">
 	</div>
-	<script type="text/javascript">
+    
+    {% load threadedcomments_tags %}
+
+    {% render_comment_list for article_obj %}
+    {% render_comment_form for article_obj %}
+
+    <!-- 在 jquery.js 之后引入 -->
+    <script src="/js/mycomments.js"></script>
+
+    <script type="text/javascript">
         $(document).ready(function  () {
             intArticle();
         });
@@ -22,4 +31,11 @@
             console.log(content);
         }
 	</script>
+    {% if user.is_authenticated %}
+    <script>
+        jQuery(function($) {
+            setAuthenticatedUser();
+        }); 
+    </script>
+{% endif %}
 {% endblock %}

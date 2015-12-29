@@ -44,4 +44,7 @@ urlpatterns = patterns('',
 
     # Just some study
     url(r'^jsonTest/$', 'blog.views.jsonTest', name = 'jsonTest'),
+
+    # For comments in blog
+    url(r'^comments/', include('django_comments.urls')),  
 )

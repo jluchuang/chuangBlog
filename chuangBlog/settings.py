@@ -40,7 +40,14 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles', 
     'ckeditor',
 
-   # 'chuang', 
+    # For comments in blog
+    'crispy_forms', 
+    'mycomments',  
+    'threadedcomments', 
+    'django_comments', 
+    'django.contrib.sites',
+
+    # 'chuang', 
     'blog', 
     'tools', 
 )
@@ -166,8 +173,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #    "django.contrib.staticfiles.finders.AppDirectoriesFinder"
 #)
 
+# For debug logs
 import logging
 logging.basicConfig(
     level = logging.DEBUG,
     format = '%(asctime)s %(levelname)s %(message)s',
 )
+
+
+COMMENTS_APP = 'mycomments'
+
+SITE_ID = 1
+
+RISPY_TEMPLATE_PACK = 'bootstrap3'

@@ -21,9 +21,3 @@ class Article(models.Model):
 
 	def __str__(self) : 
 		return self.title 
-
-class Tag(models.Model):
-	tag_name = models.CharField(u'tag_name', max_length=256)
-
-	def __str__(self):
-		return self.tag_name

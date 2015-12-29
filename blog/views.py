@@ -48,7 +48,8 @@ def tecBlog(request, title):
         articleDict['update_time'] = article[0].update_time.strftime("%Y-%m-%d-%H")
         return render(request, 'tecblog.html', {
             'article' : json.dumps(articleDict),
-            'article_content' : articleDict['content']
+            'article_content' : articleDict['content'],
+            'article_obj': article[0],
             })
     	pass
 
