@@ -8,7 +8,6 @@
         {% for comment in comment_list|fill_tree|annotate_tree %}
         {% if comment.parent_id and not comment.open %}
             <!-- return to outer(non-root) level  -->
-            Here
             </div>
             </div>
             <!-- end return to outer(non-root) level  -->

@@ -11,6 +11,9 @@ urlpatterns = patterns('',
     url(r'^js/(?P<path>.*)$','django.views.static.serve', 
     	{'document_root':'/home/chuang/chuangBlog/common/js'}),
 
+    url(r'^bootstrap/(?P<path>.*)$','django.views.static.serve', 
+        {'document_root':'/home/chuang/chuangBlog/common/bootstrap'}),
+
     url(r'^inc/(?P<path>.*)$','django.views.static.serve', 
     	{'document_root':'/home/chuang/chuangBlog/common/inc'}),
 
