@@ -16,7 +16,7 @@ import json
 import logging
 
 def index(request) : 
-    return listAllBlogs(request)
+    return listBlogs(request)
 
 def chuangHome(request):
 	return render(request, 'chuangHome.html')
@@ -55,8 +55,16 @@ def tecBlog(request, title):
 	return render(request, 'tecblog.html')
 
 #Article List
-def listAllBlogs(request):
-    article_set = Article.objects.all()
+def listBlogs(request):
+
+    search_word = request.GET.get('search_word', "")
+    logging.debug(search_word)
+
+    article_set = []
+    if(search_word is None):
+        article_set = listAllBlogs()
+    else:
+        article_set = searchArticles(search_word)
 
     articleList = []
     jsonList = {}
@@ -74,3 +82,12 @@ def listAllBlogs(request):
             })
 
     return render(request, 'blogList.html')
+
+# List All Articles 
+def listAllBlogs(): 
+    article_set = Article.objects.all()
+    return article_set
+
+def searchArticles(search_word):
+    article_set = Article.objects.filter(title__icontains=search_word)
+    return article_set

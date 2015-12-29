@@ -28,7 +28,7 @@ urlpatterns = patterns('',
     url(r'^blogList/(.+)/$', 'blog.views.tecBlog', name='tecblog'),
 
     # Blog List
-    url(r'^blogList/$', 'blog.views.listAllBlogs', name='blogList'),
+    url(r'^blogList/$', 'blog.views.listBlogs', name='blogList'),
 
     # About me
     url(r'^aboutMe/$', 'blog.views.chuangHome', name='aboutMe'),
