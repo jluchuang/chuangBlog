@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="posts">
+    {% for key, value in dicts.items %}
+        {{key | date:'Y, M'}}
+        {% for post in value %}
+        <section class="post">
+            <header class="post-header">
+                <h2 class="post-title"><a href="{% url "tecblog" post.title %}">{{ post.title }}</a></h2>
+
+                    <p class="post-meta">
+                        发布日期:  <a class="post-author" href="#">{{ post.pub_date |date:"Y /m /d"}}</a> 
+                    </p>
+            </header>
+        </section>
+        {% endfor %}
+    {% endfor %}
+</div><!-- /.blog-post -->
+{% endblock %}

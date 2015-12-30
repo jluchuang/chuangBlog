@@ -14,8 +14,8 @@ class Article(models.Model):
 	summary = models.TextField(u'summary')
 	content = RichTextField(u'content', config_name = 'default')
 
-	pub_date = models.DateTimeField(u'pub_time', auto_now_add = True, editable = True)
-	update_time = models.DateTimeField(u'update_time', auto_now = True, null = True)
+	pub_date = models.DateField(u'pub_time', auto_now_add = True, editable = True)
+	update_time = models.DateField(u'update_time', auto_now = True, null = True)
 
 	type_id =  models.IntegerField(u'type_id', default = 0)
 

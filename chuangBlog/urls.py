@@ -8,6 +8,12 @@ urlpatterns = patterns('',
     url(r'^media/(?P<path>.*)$','django.views.static.serve', 
         {'document_root':'/home/chuang/chuangBlog/media'}),
 
+    # Admin
+    url(r'^admin/', include(admin.site.urls)),
+
+    # For comments in blog
+    url(r'^comments/', include('django_comments.urls')),  
+
     # For ckeditor
     url(r'^ckeditor/', include('ckeditor.urls')),
     
@@ -26,15 +32,12 @@ urlpatterns = patterns('',
     # Friends
     url(r'^friends/$', 'blog.views.friends', name='friends'),
 
-    # Admin
-    url(r'^admin/', include(admin.site.urls)),
-
     # Tools
     url(r'^qrcode/$', 'tools.views.generate_qrcode', name = 'qrcode'),
 
     # Just some study
     url(r'^jsonTest/$', 'blog.views.jsonTest', name = 'jsonTest'),
 
-    # For comments in blog
-    url(r'^comments/', include('django_comments.urls')),  
+    url(r'^archives/$', 'blog.views.archives', name = 'archives'),
+
 )

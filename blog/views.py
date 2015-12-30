@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from django.core import serializers
-
+from collections import OrderedDict
 #for model
 from .models import Article
 
@@ -83,6 +83,29 @@ def listBlogs(request):
             })
 
     return render(request, 'blogList.html')
+
+def archives(request) :
+    try:
+        post_date = Article.objects.dates('pub_date', 'month')
+        post_date = post_date.reverse()
+        post_date_article = []
+
+        for i in range(len(post_date)):
+            post_date_article.append([])
+        for i in range(len(post_date)):
+            cur_year = post_date[i].year
+            cur_month = post_date[i].month
+            temp_arc = Article.objects.filter(pub_date__year=cur_year).filter(pub_date__month = cur_month)
+            post_date_article[i] = temp_arc
+
+        dicts = OrderedDict()
+
+        for i in range(len(post_date)):
+            dicts.setdefault(post_date[i], post_date_article[i])
+    except Article.DoesNotExist:
+        raise Http404
+    return render(request, 'archives.html', {'dicts' : dicts, 
+                                            'error' : False})
 
 # List All Articles 
 def listAllBlogs(): 
