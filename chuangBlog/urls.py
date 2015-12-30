@@ -4,19 +4,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('', 
-    #For the common sources 
-    url(r'^css/(?P<path>.*)$','django.views.static.serve', 
-    	{'document_root':'/home/chuang/chuangBlog/common/css'}),
-
-    url(r'^js/(?P<path>.*)$','django.views.static.serve', 
-    	{'document_root':'/home/chuang/chuangBlog/common/js'}),
-
-    url(r'^bootstrap/(?P<path>.*)$','django.views.static.serve', 
-        {'document_root':'/home/chuang/chuangBlog/common/bootstrap'}),
-
-    url(r'^inc/(?P<path>.*)$','django.views.static.serve', 
-    	{'document_root':'/home/chuang/chuangBlog/common/inc'}),
-
     # Ckeditor upload file path
     url(r'^media/(?P<path>.*)$','django.views.static.serve', 
         {'document_root':'/home/chuang/chuangBlog/media'}),

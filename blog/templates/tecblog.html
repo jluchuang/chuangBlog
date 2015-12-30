@@ -12,7 +12,8 @@
     {% render_comment_form for article_obj %}
 
     <!-- 在 jquery.js 之后引入 -->
-    <script src="/js/mycomments.js"></script>
+    {% load staticfiles %}
+    <script src="{% static "js/mycomments.js" %}"></script>
 
     <script type="text/javascript">
         $(document).ready(function  () {
