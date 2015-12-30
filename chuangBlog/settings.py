@@ -185,4 +185,4 @@ COMMENTS_APP = 'mycomments'
 
 SITE_ID = 1
 
-RISPY_TEMPLATE_PACK = 'bootstrap'
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
