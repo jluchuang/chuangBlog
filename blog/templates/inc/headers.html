@@ -1,21 +1,22 @@
-    {% load staticfiles %}
+    {% load staticfiles %} 
+    <!-- For CKeditor and code highlight -->
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}" >
     <link rel="stylesheet" type="text/css" href="{% static "css/prettify.css" %}" >
     <link rel="stylesheet" type="text/css" href="{% static "css/normalize.css" %}" >
-     
+    
     <!-- For comments with Threadedcomment and bootstrap -->
     <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" >
     <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap-theme.min.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/mycomments.css" %}">
     
+
     <!-- For CKeditor and code highlight -->
     <link rel="stylesheet" type="text/css" href="{% static "js/highlight/styles/monokai_sublime.css" %}">
 
     <script type="text/javascript" src="{% static "js/prettify.js" %}"></script>
     <script type="text/javascript" src="{% static "js/string.js" %}"></script>
     
-    <!-- For CKeditor and code highlight -->
-    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="{% static "js/highlight/highlight.pack.js" %}" ></script>
     <script>hljs.initHighlightingOnLoad();</script>
     
