@@ -10,6 +10,7 @@ from django.core import serializers
 from collections import OrderedDict
 #for model
 from .models import Article
+from .models import Tag
 
 from bson import json_util
 import json
@@ -50,10 +51,11 @@ def tecBlog(request, title):
             'article' : json.dumps(articleDict),
             'article_content' : articleDict['content'],
             'article_obj': article[0],
+            'tag_cloud' : tagCloud(),
             })
     	pass
 
-	return render(request, 'tecblog.html')
+	return render(request, 'tecblog.html', {'tag_cloud' : tagCloud()} )
 
 #Article List
 def listBlogs(request):
@@ -67,19 +69,33 @@ def listBlogs(request):
     else:
         article_set = searchArticles(search_word)
 
+    logging.debug(article_set)
     articleList = []
     jsonList = {}
 
     if article_set:
         for article in article_set:
+            logging.debug(article.tag_id)            
+            # Basic properties for article
             tmpDict = {}
             tmpDict['title'] = article.title
             tmpDict['summary'] = article.summary
+            tmpDict['key_words'] = article.key_words
+
+            # Article Tag
+            tmpTag = Tag.objects.filter(id=article.tag_id)
+            if tmpTag:
+                tmpDict['tag'] = tmpTag[0].tag_name
+            else:
+                tmpDict['tag'] = 'Unknown'
+
             articleList.append(tmpDict)
         #jsonList = serializers.serialize("json", article_set, fields=('title', 'summary'))
         jsonList = json.dumps(articleList)
+        logging.debug(jsonList)
         return render(request, 'blogList.html', {
-            'blogList' : jsonList
+            'blogList' : jsonList, 
+            'tag_cloud' : tagCloud()
             })
 
     return render(request, 'blogList.html')
@@ -105,7 +121,35 @@ def archives(request) :
     except Article.DoesNotExist:
         raise Http404
     return render(request, 'archives.html', {'dicts' : dicts, 
-                                            'error' : False})
+                                            'error' : False,
+                                            'tag_cloud' : tagCloud()})
+
+#def listBlogByTag(request):
+#    tag_id = request.GET.get('tag_id', -1)
+#
+#    if tag_id != -1:
+#    else :
+#        raise Http404 
+
+def tagCloud() :
+    try:
+        tags = Tag.objects.all()
+        tag_cloud = []
+        for i in range(len(tags)):
+            articleWithTag = Article.objects.filter(tag_id=tags[i].id)
+            tmpDict = {}
+            tmpDict['tag_name'] = tags[i].tag_name
+            tmpDict['tag_id'] = tags[i].id
+            if articleWithTag:
+                tmpDict['count'] = len(articleWithTag)
+            else :
+                tmpDict['count'] = 0
+            tag_cloud.append(tmpDict)
+        logging.debug(tag_cloud);
+        return json.dumps(tag_cloud)
+    except Tag.DoesNotExist:
+        raise Http404
+
 
 # List All Articles 
 def listAllBlogs(): 

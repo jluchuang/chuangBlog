@@ -9,7 +9,7 @@
 {% include 'inc/topview.html' %}
 <div class="container-fluid">
     <div class="row-fluid">
-                <div class="col-xs-9 col-sm-9 col-md-9">
+                <div class="col-xs-8 col-xs-offset-1  col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1">
                     <div id="main">
                         <div id="main-inner">
                             {% include 'inc/nav.html' %}
@@ -19,8 +19,9 @@
                         </div>
                     </div>    
                 </div>
-                <div class="col-xs-3 col-md-3 col-lg-3">
+                <div class="col-xs-2 col-md-2 col-lg-2">
                     {% include 'inc/me.html' %}
+                    {% include 'inc/tag_cloud.html' %}
                     {% include 'inc/suggest.html' %}
                 </div>
 	       {% include 'inc/footer.html' %}

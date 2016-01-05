@@ -43,7 +43,7 @@ div#header {
 }
 div#header-inner {
     width: 100%;
-    max-width: 1024px;
+    /*max-width: 1024px;*/
     margin: 0 auto;
     padding-top: 2px;
 }
@@ -65,8 +65,8 @@ div#main {
     margin-bottom: 70px;
 }
 div#main-inner {
-    width: 90%;
-    max-width: 1024px;
+    width: 100%;
+    /*max-width: 1024px;*/
     margin: 0 auto;
 }
 div#title a {
@@ -202,8 +202,9 @@ div#audit-list {
 
 /* æ ‡ç­¾é…ç½® */
 div#tag-cloud {
-    border: 1px dashed #ccc;
-    margin: 20px 0;
+    /*border: 1px dashed #ccc;*/
+    /*margin: 20px 0;*/
+    height: 150px;
     background-color: #f0f0f0;
 }
 div#tag-cloud a {

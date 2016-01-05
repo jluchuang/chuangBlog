@@ -1,0 +1,28 @@
+<div class="well">
+    <h5>【标签】</h5>
+    <div id="tag-cloud-div" class="sidebar-module sidebar-module-inset">
+        <div id="tag-cloud">
+            
+        </div> 
+    </div>
+</div>
+<script type="text/javascript">
+    var tag_cloud = {{ tag_cloud | safe }}
+    $(document).ready(function(){
+        initTagClouds();
+        })
+
+    function initTagClouds(){
+        var htmlStr = "";
+
+        for(var i = 0; i < tag_cloud.length; i ++) {
+            var curTag = "<a href='#'>"; 
+            curTag +=　tag_cloud[i].tag_name; 
+            curTag += "<span class='count'>×"
+            curTag += tag_cloud[i].count; 
+            curTag += "</span></a>"; 
+            htmlStr += curTag;
+        }
+        $("#tag-cloud").html(htmlStr);
+    }
+</script>
