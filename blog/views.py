@@ -20,7 +20,7 @@ def index(request) :
     return listBlogs(request)
 
 def chuangHome(request):
-	return render(request, 'chuangHome.html')
+	return render(request, 'chuangHome.html', {'tag_cloud' : tagCloud()})
 
 def jsonTest(request):
 	List = ['find', 'study', 'try', 'work']
