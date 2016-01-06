@@ -42,10 +42,10 @@ INSTALLED_APPS = (
     'ckeditor',
 
     # For comments in blog
-    'crispy_forms', 
-    'mycomments',  
-    'threadedcomments', 
-    'django_comments', 
+    #'crispy_forms', 
+    #'mycomments',  
+    #'threadedcomments', 
+    #'django_comments', 
     'django.contrib.sites',
 
     # 'chuang', 
@@ -126,7 +126,7 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+#USE_I18N = True
 
 USE_L10N = True
 
@@ -188,9 +188,9 @@ logging.basicConfig(
 )
 
 
-COMMENTS_APP = 'mycomments'
+#COMMENTS_APP = 'mycomments'
 
-SITE_ID = 1
+#SITE_ID = 1
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 

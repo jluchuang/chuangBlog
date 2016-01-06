@@ -83,7 +83,7 @@ div#subtitle {
 
 /* é¡µé¢åº•éƒ¨ */
 div#footer {
-  position: fixed;
+  position: static;
   bottom: 0;
   left: 0;
   height: 70px;
@@ -93,7 +93,7 @@ div#footer {
 
 div#footer-inner {
     border-top: 1px solid #5a5a5a;
-    width: 100%;
+    width: 96%;
     /*max-width: 1024px;*/
     margin: 20px auto 0;
 }
