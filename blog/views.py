@@ -42,6 +42,8 @@ def tecBlog(request, title):
     #Generate Json Result
     if article:
         articleDict = {}
+        articleDict['id'] = article[0].id
+        logging.debug(article[0].id)
         articleDict['title'] = article[0].title
         articleDict['summary'] = article[0].summary
         articleDict['content'] = article[0].content

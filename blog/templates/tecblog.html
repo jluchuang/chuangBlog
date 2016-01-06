@@ -2,13 +2,13 @@
 
 {% block content %}
 	<div id = "article-title">
+    {{article.id}}
 	</div>
     <div id = "article-content">
 	</div>
-
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="{{article.id}}" data-title="{{article.title}}" 
-         data-url="/blogList/{{article.title}}/">
+    <div class="ds-thread" data-thread-key="{{article_obj.title}}" data-title="{{article_obj.title}}" 
+         data-url="/blogList/{{article_obj.title}}/">
         
     </div>
     <!-- 多说评论框 end -->
@@ -16,6 +16,7 @@
     <script type="text/javascript">
     var duoshuoQuery = {short_name:"chuangkeeptry"};
     (function() {
+        var article = {{article | safe}}; 
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
         ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
