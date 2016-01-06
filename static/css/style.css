@@ -48,9 +48,10 @@ div#header-inner {
     padding-top: 2px;
 }
 
-div#login {
+div#search-in-site {
     width: 100%;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 7px;
 }
 
@@ -203,11 +204,12 @@ div#audit-list {
 /* æ ‡ç­¾é…ç½® */
 div#tag-cloud {
     /*border: 1px dashed #ccc;*/
-    /*margin: 20px 0;*/
+    margin: auto;
     height: 150px;
+    width: 90%;
     background-color: #f0f0f0;
 }
-div#tag-cloud a {
+/*div#tag-cloud a {
     margin: 6px;
     display: block;
     float: left;
@@ -220,7 +222,7 @@ div#tag-cloud a {
 div#tag-cloud a .count {
     color: rgba(255,255,255,.5);
     font-size: 12px;
-}
+}*/
 div#tag-index h1 {
     border-bottom: 1px dashed #ccc;
 }

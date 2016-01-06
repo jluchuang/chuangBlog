@@ -13,16 +13,23 @@
         })
 
     function initTagClouds(){
-        var htmlStr = "";
-
+        // var htmlStr = "";
+        var wordArray = [];
         for(var i = 0; i < tag_cloud.length; i ++) {
-            var curTag = "<a href='/tagList/" + tag_cloud[i].tag_name + "/?tag_id=" + tag_cloud[i].tag_id + "'>"; 
-            curTag +=　tag_cloud[i].tag_name; 
-            curTag += "<span class='count'>×"
-            curTag += tag_cloud[i].count; 
-            curTag += "</span></a>"; 
-            htmlStr += curTag;
+            // var curTag = "<a href='/tagList/" + tag_cloud[i].tag_name + "/?tag_id=" + tag_cloud[i].tag_id + "'>"; 
+            // curTag +=　tag_cloud[i].tag_name; 
+            // curTag += "<span class='count'>×"
+            // curTag += tag_cloud[i].count; 
+            // curTag += "</span></a>"; 
+            // htmlStr += curTag;
+            var tmpHref = "/tagList/" + tag_cloud[i].tag_name + "/?tag_id=" + tag_cloud[i].tag_id;
+            var tmp = {
+                text: tag_cloud[i].tag_name,
+                weight: tag_cloud[i].count,
+                link: tmpHref
+            }
+            wordArray[wordArray.length]=tmp;
         }
-        $("#tag-cloud").html(htmlStr);
+        $("#tag-cloud").jQCloud(wordArray);
     }
 </script>
