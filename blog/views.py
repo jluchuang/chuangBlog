@@ -86,8 +86,11 @@ def listBlogs(request):
             tmpTag = Tag.objects.filter(id=article.tag_id)
             if tmpTag:
                 tmpDict['tag'] = tmpTag[0].tag_name
+                tmpDict['tag_id'] = tmpTag[0].id
             else:
+                # Never should be happened
                 tmpDict['tag'] = 'Unknown'
+                tmpDict['tag_id'] = -1
 
             articleList.append(tmpDict)
         #jsonList = serializers.serialize("json", article_set, fields=('title', 'summary'))
@@ -124,12 +127,21 @@ def archives(request) :
                                             'error' : False,
                                             'tag_cloud' : tagCloud()})
 
-#def listBlogByTag(request):
-#    tag_id = request.GET.get('tag_id', -1)
-#
-#    if tag_id != -1:
-#    else :
-#        raise Http404 
+def listBlogByTag(request, tag_name):
+    tag_id = request.GET.get('tag_id', -1)
+
+    articleList = []
+    if tag_id != -1:
+        articleWithTag = Article.objects.filter(tag_id=tag_id)
+        if articleWithTag :
+            for article in articleWithTag:
+                articleTitle = article.title
+                articleList.append(articleTitle)
+        return render(request, 'blogOfTag.html', {'articleList': articleList, 
+                                                    'tag_cloud' : tagCloud(), 
+                                                    'tag_name': tag_name})
+    else :
+        raise Http404 
 
 def tagCloud() :
     try:

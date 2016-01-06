@@ -16,7 +16,7 @@
         var htmlStr = "";
 
         for(var i = 0; i < tag_cloud.length; i ++) {
-            var curTag = "<a href='#'>"; 
+            var curTag = "<a href='/tagList/" + tag_cloud[i].tag_name + "/?tag_id=" + tag_cloud[i].tag_id + "'>"; 
             curTag +=　tag_cloud[i].tag_name; 
             curTag += "<span class='count'>×"
             curTag += tag_cloud[i].count; 

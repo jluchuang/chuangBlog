@@ -23,8 +23,9 @@
 
                 var keywords = blogList[i].key_words;
                 var tag = blogList[i].tag;
+                var tag_id = blogList[i].tag_id
                 htmStr += "<p class='meta'> 分类：";
-                htmStr += "<a class='tag'>" + tag + "</a>"; 
+                htmStr += "<a href='/tagList/" + tag + "/?tag_id=" + tag_id + "'>" + tag + "</a>"; 
                 htmStr += " | 关键词： <a class='tag'>" + keywords + "</a>"; 
                 htmStr += "</p>";
 

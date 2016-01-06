@@ -40,4 +40,5 @@ urlpatterns = patterns('',
 
     url(r'^archives/$', 'blog.views.archives', name = 'archives'),
 
+    url(r'^tagList/(.+)/$', 'blog.views.listBlogByTag', name = 'tagList'),
 )

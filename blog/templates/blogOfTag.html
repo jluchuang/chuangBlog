@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <blockquote class="bg-info">
+        <p>标签分类： {{tag_name}}</p>
+    </blockquote>
+    <div id='tag-article-list' class="well">
+        {% for title in articleList %}
+            <h4 class="strong"><a href="{% url "tecblog" title %}">{{ title }}</a></h4>
+        {% endfor %}
+    </div>
+{% endblock %}
