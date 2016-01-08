@@ -202,11 +202,10 @@ div#audit-list {
 }
 
 /* æ ‡ç­¾é…ç½® */
-div#tag-cloud {
+div#tag-cloud-div {
     /*border: 1px dashed #ccc;*/
     margin: auto;
-    height: 150px;
-    width: 90%;
+    height: 200px;
     background-color: #f0f0f0;
 }
 /*div#tag-cloud a {

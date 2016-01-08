@@ -1,9 +1,6 @@
 <div class="well">
     <h5>【标签】</h5>
     <div id="tag-cloud-div" class="sidebar-module sidebar-module-inset">
-        <div id="tag-cloud">
-            
-        </div> 
     </div>
 </div>
 <script type="text/javascript">
@@ -30,6 +27,10 @@
             }
             wordArray[wordArray.length]=tmp;
         }
-        $("#tag-cloud").jQCloud(wordArray);
+        var width = $("#tag_cloud").attr("width");
+        var height = $("#tag_cloud").attr("height");
+        $("#tag-cloud-div").jQCloud(wordArray, {
+            removeOverflowing: false
+        });
     }
 </script>
