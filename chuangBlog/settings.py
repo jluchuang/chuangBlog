@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 't9ki!z94*f_c-@5&&15!qc*_i75j-0%7y!k_xo-74$blh0dm72'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-#DEBUG = False
+#DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,17 +40,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles', 
     'ckeditor',
-
-    # For comments in blog
-    #'crispy_forms', 
-    #'mycomments',  
-    #'threadedcomments', 
-    #'django_comments', 
+ 
     'django.contrib.sites',
-
-    # 'chuang', 
-    'blog', 
-    'tools', 
+     
+    'blog',  
 )
 
 MIDDLEWARE_CLASSES = (
@@ -190,8 +183,7 @@ logging.basicConfig(
 
 #COMMENTS_APP = 'mycomments'
 
-#SITE_ID = 1
-
+SITE_ID = 2
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 
