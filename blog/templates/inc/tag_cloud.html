@@ -1,8 +1,8 @@
-<div class="well">
-    <h5>【标签】</h5>
-    <div id="tag-cloud-div" class="sidebar-module sidebar-module-inset">
-    </div>
+
+<h5>【标签】</h5>
+<div id="tag-cloud-div">
 </div>
+
 <script type="text/javascript">
     var tag_cloud = {{ tag_cloud | safe }}
     $(document).ready(function(){
@@ -10,27 +10,31 @@
         })
 
     function initTagClouds(){
-        // var htmlStr = "";
-        var wordArray = [];
+        var htmlStr = "";
+        // var wordArray = [];
         for(var i = 0; i < tag_cloud.length; i ++) {
-            // var curTag = "<a href='/tagList/" + tag_cloud[i].tag_name + "/?tag_id=" + tag_cloud[i].tag_id + "'>"; 
-            // curTag +=　tag_cloud[i].tag_name; 
-            // curTag += "<span class='count'>×"
-            // curTag += tag_cloud[i].count; 
-            // curTag += "</span></a>"; 
-            // htmlStr += curTag;
-            var tmpHref = "/tagList/" + tag_cloud[i].tag_name + "/?tag_id=" + tag_cloud[i].tag_id;
+            var curTag = 
+                "<a href='/tagList/" + tag_cloud[i].tag_name + "/?tag_id=" + tag_cloud[i].tag_id + "'>";
+            curTag += "<span class='label label-info' style='display: inline-block'>"; 
+            curTag += tag_cloud[i].tag_name; 
+            curTag += "×"
+            curTag += tag_cloud[i].count; 
+            curTag += "</span></a>"; 
+            htmlStr += curTag;
+            
+            /*var tmpHref = "/tagList/" + tag_cloud[i].tag_name + "/?tag_id=" + tag_cloud[i].tag_id;
             var tmp = {
                 text: tag_cloud[i].tag_name,
                 weight: tag_cloud[i].count,
                 link: tmpHref
             }
-            wordArray[wordArray.length]=tmp;
+            wordArray[wordArray.length]=tmp;*/
         }
-        var width = $("#tag_cloud").attr("width");
+        /*var width = $("#tag_cloud").attr("width");
         var height = $("#tag_cloud").attr("height");
         $("#tag-cloud-div").jQCloud(wordArray, {
             removeOverflowing: false
-        });
+        });*/
+        $('#tag-cloud-div').html(htmlStr);
     }
 </script>
