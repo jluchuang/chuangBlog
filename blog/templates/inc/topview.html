@@ -1,22 +1,36 @@
-<div id="header">
-    <div class="container-fluid">
-        <div class="col-xs-8 col-xs-offset-1 col-lg-8 col-lg-offset-1" >
-            <div id="header-inner">
-                <div id="title"><a href="/">Keep Try</a></div>
-                <div id="subtitle">不断尝试，做一个有故事的程序员......</div>
-            </div>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Keep Try</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/">首页 <span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'archives' %}">归档</a></li>
+        <li><a href="{% url 'aboutMe' %}">About Me</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其他 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://blog.csdn.net/loverooney" target="_blank">CSDN Blog</a></li>
+            <li><a href="https://github.com/jluchuang" target="_blank">Git Hub</a></li>
+            <!--<li><a href="{% url 'friends' %}" target="_blank">Friends</a></li>-->
+          </ul>
+        </li>
+      <form class="navbar-form navbar-right" role="search" method="get" action="{% url 'blogList' %}">
+        <div class="form-group">
+          <input type="text" class="form-control" name="search_word" placeholder="Search">
         </div>
-        <div class="col-xs-2 col-md-2 col-lg-2">
-            <div id="search-in-site">
-                <form class="form-inline" method="get" action="{% url 'blogList' %}"> 
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="search_word" placeholder="站内搜">
-                        <span class="input-group-btn">
-                            <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                        </span>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div> 
+        <button type="submit" class="btn btn-default">GO</button>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </div>

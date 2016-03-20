@@ -64,6 +64,7 @@ div#header-search {
 
 div#main {
     margin-bottom: 70px;
+    padding-top: 60px; 
 }
 div#main-inner {
     width: 100%;
