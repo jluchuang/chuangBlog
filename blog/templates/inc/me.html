@@ -1,11 +1,24 @@
-<div class="well">
-    <h5>【关于我】</h5>
-    <div id="me-photo" class="sidebar-module sidebar-module-inset">
-        <div class="center-block">
-            <a href="{% url "home" %}"><img id="photo" src="/media/head.jpg" alt="" class="img-circle"></a>
-            <p class="bg-info text-center"><a href="https://github.com/jluchuang" target="_blank">GitHub</a></p>
-            <p class="bg-info text-center"><a href="http://weibo.com/u/2083905435/home?topnav=1&wvr=6">微博</a></p>
-        </div> 
-    </div>
+<div id="myAffix" data-spy="affix" data-offset-top="70" data-offset-bottom="200">
+    <div class="well">
+        <h5>【关于我】</h5>
+        <div id="me-photo" class="sidebar-module sidebar-module-inset">
+            <div class="center-block">
+                <a href="{% url "home" %}"><img id="photo" src="/media/head.jpg" alt="" class="img-circle"></a>
+
+                <hr style="height:10px;border:none;border-top:10px groove skyblue;" />
+
+                <p class="text-center">
+                    <a href="https://github.com/jluchuang" target="_blank">
+                        <img src="/media/github.png" alt=""  class="img-rounded" width="24px" height="24px">
+                    </a>
+                    <a href="http://blog.csdn.net/loverooney" target="_blank">
+                        <img src="/media/csdn.ico" alt=""  class="img-rounded" width="24px" height="24px">
+                    </a>
+                </p>
+
+                <hr style="height:10px;border:none;border-top:10px groove skyblue;" />
+            </div> 
+        </div>
     {% include 'inc/tag_cloud.html' %}
+    </div>
 </div>
