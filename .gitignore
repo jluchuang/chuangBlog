@@ -1,3 +1,6 @@
 *.pyc
 *.swp
 *~
+ngix_conf_aliserver/*
+chuangBlog.sql
+
