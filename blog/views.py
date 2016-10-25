@@ -75,7 +75,7 @@ def listBlogs(request):
     articleList = []
     jsonList = {}
 
-    if article_set:
+    if len(article_set) != 0:
         for article in article_set:
             logging.debug(article.tag_id)            
             # Basic properties for article
@@ -103,7 +103,10 @@ def listBlogs(request):
             'tag_cloud' : tagCloud()
             })
 
-    return render(request, 'blogList.html')
+    logging.debug("################" + tagCloud())    
+    return render(request, 'blogList.html', {
+        'tag_cloud' : tagCloud()
+        })
 
 def archives(request) :
     try:
