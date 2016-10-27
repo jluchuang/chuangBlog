@@ -63,7 +63,6 @@ def tecBlog(request, title):
 def listBlogs(request):
 
     search_word = request.GET.get('search_word', "")
-    logging.debug(search_word)
 
     article_set = []
     if(search_word is None):
@@ -71,13 +70,11 @@ def listBlogs(request):
     else:
         article_set = searchArticles(search_word)
 
-    logging.debug(article_set)
     articleList = []
     jsonList = {}
 
     if len(article_set) != 0:
-        for article in article_set:
-            logging.debug(article.tag_id)            
+        for article in article_set:            
             # Basic properties for article
             tmpDict = {}
             tmpDict['title'] = article.title
@@ -96,17 +93,13 @@ def listBlogs(request):
 
             articleList.append(tmpDict)
         #jsonList = serializers.serialize("json", article_set, fields=('title', 'summary'))
-        jsonList = json.dumps(articleList)
-        logging.debug(jsonList)
-        return render(request, 'blogList.html', {
-            'blogList' : jsonList, 
-            'tag_cloud' : tagCloud()
-            })
-
-    logging.debug("################" + tagCloud())    
+    jsonList = json.dumps(articleList)
+    logging.debug(jsonList)
     return render(request, 'blogList.html', {
+        'blogList' : json.loads(jsonList), 
         'tag_cloud' : tagCloud()
         })
+    
 
 def archives(request) :
     try:
