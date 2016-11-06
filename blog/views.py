@@ -20,7 +20,7 @@ def index(request) :
     return listBlogs(request)
 
 def chuangHome(request):
-	return render(request, 'chuangHome.html', {'tag_cloud' : tagCloud()})
+	return render(request, 'chuangHome.html', {'select_module': 'profile', 'tag_cloud' : tagCloud()})
 
 def jsonTest(request):
 	List = ['find', 'study', 'try', 'work']
@@ -96,6 +96,7 @@ def listBlogs(request):
     jsonList = json.dumps(articleList)
     logging.debug(jsonList)
     return render(request, 'blogList.html', {
+        'select_module': 'home', 
         'blogList' : json.loads(jsonList), 
         'tag_cloud' : tagCloud()
         })
@@ -121,7 +122,9 @@ def archives(request) :
             dicts.setdefault(post_date[i], post_date_article[i])
     except Article.DoesNotExist:
         raise Http404
-    return render(request, 'archives.html', {'dicts' : dicts, 
+    return render(request, 'archives.html', {
+                                            'select_module': 'archive', 
+                                            'dicts' : dicts, 
                                             'error' : False,
                                             'tag_cloud' : tagCloud()})
 

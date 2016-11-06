@@ -64,7 +64,6 @@ div#header-search {
 
 div#main {
     margin-bottom: 70px;
-    padding-top: 60px; 
 }
 div#main-inner {
     width: 100%;
@@ -283,4 +282,17 @@ div.friends-block div.pic {
     margin-left: auto;
     width: 70%;
     height: 70%;   
+}
+
+/* Custom page header */
+.header {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #e5e5e5;
+}
+
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
 }

@@ -1,0 +1,14 @@
+<div class="header clearfix">
+	<ul class="nav nav-pills pull-right">
+	    <li role="presentation" class="pull-right {% if 'archive' == select_module %} active {% endif %}">
+	        <a href="{% url 'archives' %}">Achives</a>
+	    </li>
+	    <li role="presentation" class="pull-right {% if 'profile' == select_module %} active {% endif %}">
+	        <a href="{% url 'aboutMe' %}">Profile</a>
+	    </li>
+    	<li role="presentation" class="pull-right {% if 'home' == select_module %} active {% endif %}">
+            <a href="{% url 'blogList' %}">Home</a>
+        </li>
+    </ul>
+    <h3>Keep try : <small>stay hungry, stay foolish......</small> </h3>
+</div>

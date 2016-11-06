@@ -3,7 +3,7 @@
 {% block content %}
 <div class="post">
     {% for key, value in dicts.items %}
-    <div class="well">
+    <div>
         {{key | date:'Y, M'}}
         {% for post in value %}
             <header class="post-header">

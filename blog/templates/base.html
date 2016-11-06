@@ -17,22 +17,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-NVSFDB');</script>
 <!-- End Google Tag Manager -->
 
-{% include 'inc/topview.html' %}
 <div class="container-fluid">
     <div class="row-fluid">
-                <div class="col-xs-10 col-sm-10 col-md-10 ">
-                    <div id="main">
-                        <div id="main-inner">
-                            {% block content %}
-                                <div>这里是默认内容，所有继承自这个模板的，如果不覆盖就显示这里的默认内容。</div>
-                            {% endblock %}
-                        </div>
-                    </div>    
+    {% include 'inc/top_nav.html' %}
+        <div class="col-xs-12 col-md-8 col-lg-9">
+            <div id="main">
+                <div id="main-inner">
+                    {% block content %}
+                    <div>这里是默认内容，所有继承自这个模板的，如果不覆盖就显示这里的默认内容。</div>
+                    {% endblock %}
                 </div>
-                <div class="col-xs-2 col-md-2 col-lg-2">
-                    {% include 'inc/me.html' %}
-                </div>
-        </div>   
+            </div>    
+        </div>
+        <div class="col-md-4 col-lg-3">
+            {% include 'inc/me.html' %}
+        </div>  
     </div>
 </div>
 {% include 'inc/footer.html' %}
