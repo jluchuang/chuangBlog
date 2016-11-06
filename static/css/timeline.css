@@ -147,13 +147,6 @@
   margin-top: 5px;
 }
 
-/** media queries **/
-@media (max-width: 991px) {
-  .timeline li .timeline-panel {
-    width: 44%;
-  }
-}
-
 @media (max-width: 700px) {
   .page-header h1 { font-size: 1.8em; }
   
