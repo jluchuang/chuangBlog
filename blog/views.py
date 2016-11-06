@@ -120,6 +120,7 @@ def archives(request) :
 
         for i in range(len(post_date)):
             dicts.setdefault(post_date[i], post_date_article[i])
+
     except Article.DoesNotExist:
         raise Http404
     return render(request, 'archives.html', {

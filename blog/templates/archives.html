@@ -2,15 +2,28 @@
 
 {% block content %}
 <div class="post">
+<ul class="timeline">
     {% for key, value in dicts.items %}
-    <div>
-        {{key | date:'Y, M'}}
+    <li><div class="tldate">{{key | date:'Y, M'}}</div></li>
         {% for post in value %}
-            <header class="post-header">
-                <h4 class="strong"><a href="{% url "tecblog" post.title %}">{{ post.title }}</a></h4>
-            </header>
+            <li class="timeline-inverted"> 
+                <div class="tl-circ"></div>
+                <div class="timeline-panel">
+                     <div class="tl-heading">
+                         <h4 class="strong"><a href="{% url "tecblog" post.title %}">{{ post.title }}</a></h4>
+                         <p>
+                             <small class="text-muted">
+                                 <i class="glyphicon glyphicon-time"></i> {{post.pub_date}}
+                             </small>
+                         </p>
+                     </div>
+                     <!-- <div class="tl-body">
+                         <p>Lorem Ipsum and such.</p>
+                     </div> -->
+                </div>
+            </li>
         {% endfor %}
-    </div>    
     {% endfor %}
+</ul>
 </div><!-- /.blog-post -->
 {% endblock %}
