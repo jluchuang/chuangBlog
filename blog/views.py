@@ -16,6 +16,8 @@ from bson import json_util
 import json
 import logging
 
+page_size = 5
+
 def index(request) : 
     return listBlogs(request)
 
@@ -63,12 +65,23 @@ def tecBlog(request, title):
 def listBlogs(request):
 
     search_word = request.GET.get('search_word', "")
+    page = int(request.GET.get('page', 1))
 
     article_set = []
-    if(search_word is None):
-        article_set = listAllBlogs()
+    total_count = 0
+    if(search_word is None or search_word == ""):
+        article_set = listAllBlogs(page, page_size)
+        total_count = getBlogCount()
     else:
-        article_set = searchArticles(search_word)
+        article_set = searchArticles(search_word, page, page_size)
+        total_count = searchArticlesCount(search_word)
+
+    pre_page = -1
+    next_page = -1
+    if page != 1:
+        pre_page = page - 1
+    if page * page_size <  total_count:
+        next_page = page + 1    
 
     articleList = []
     jsonList = {}
@@ -96,6 +109,10 @@ def listBlogs(request):
     jsonList = json.dumps(articleList)
     logging.debug(jsonList)
     return render(request, 'blogList.html', {
+        'total_count': total_count, 
+        'pre_page':pre_page, 
+        'next_page': next_page,                        
+        'page_size':page_size, 
         'select_module': 'home', 
         'blogList' : json.loads(jsonList), 
         'tag_cloud' : tagCloud()
@@ -166,10 +183,22 @@ def tagCloud() :
 
 
 # List All Articles 
-def listAllBlogs(): 
-    article_set = Article.objects.all()
+def listAllBlogs(page, page_size): 
+    start = (page - 1) * page_size
+    end = start + page_size
+    article_set = Article.objects.all()[start:end]
     return article_set
 
-def searchArticles(search_word):
-    article_set = Article.objects.filter(title__icontains=search_word)
+def getBlogCount(): 
+    count = Article.objects.count()
+    return count
+
+def searchArticles(search_word, page, page_size):
+    start = (page - 1) * page_size
+    end = start + page_size
+    article_set = Article.objects.filter(title__icontains=search_word)[start:end]
     return article_set
+
+def searchArticlesCount(search_word):
+    count = Article.objects.filter(title__icontains=search_word).count()
+    return count

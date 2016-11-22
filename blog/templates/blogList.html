@@ -12,6 +12,20 @@
                     </p>
                 </div>
             {% endfor %}
+            <ul class="pager">
+                {% if pre_page == -1 %}
+                    <li class="disabled"><a href="#">上一页</a></li>
+                {% endif %}
+                {% if pre_page != -1 %}
+                    <li><a href="{% url 'blogList' %}?page={{ pre_page }}">上一页</a></li>
+                {% endif %}
+                {% if next_page == -1 %}
+                    <li class="disabled"><a href="#">下一页</a></li>
+                {% endif %}
+                {% if next_page != -1 %}
+                    <li><a href="{% url 'blogList' %}?page={{ next_page }}">下一页</a></li>
+                {% endif %}
+            </ul>
         {% else %}
             未查询到任何结果， 回<a href="/blogList/">首页</a>看看吧！
             <img id="photo" src="/media/noanswer.jpg" alt="">
