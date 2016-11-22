@@ -109,10 +109,8 @@ def listBlogs(request):
     jsonList = json.dumps(articleList)
     logging.debug(jsonList)
     return render(request, 'blogList.html', {
-        'total_count': total_count, 
         'pre_page':pre_page, 
-        'next_page': next_page,                        
-        'page_size':page_size, 
+        'next_page': next_page,              
         'select_module': 'home', 
         'blogList' : json.loads(jsonList), 
         'tag_cloud' : tagCloud()
