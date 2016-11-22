@@ -184,7 +184,7 @@ def tagCloud() :
 def listAllBlogs(page, page_size): 
     start = (page - 1) * page_size
     end = start + page_size
-    article_set = Article.objects.all()[start:end]
+    article_set = Article.objects.all().order_by('-pub_date')[start:end]
     return article_set
 
 def getBlogCount(): 
@@ -194,7 +194,7 @@ def getBlogCount():
 def searchArticles(search_word, page, page_size):
     start = (page - 1) * page_size
     end = start + page_size
-    article_set = Article.objects.filter(title__icontains=search_word)[start:end]
+    article_set = Article.objects.filter(title__icontains=search_word).order_by('-pub_date')[start:end]
     return article_set
 
 def searchArticlesCount(search_word):
